@@ -2,7 +2,7 @@
 /*
 Plugin Name: Animated AL List
 Description: A list of elements (text or image) with animations.
-Version: 1.0.0
+Version: 1.0.1
 Author: alexdtn
 */
 
