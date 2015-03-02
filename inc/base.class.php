@@ -9,7 +9,7 @@ protected $trace;
 
 public function __construct()
   {
-      $this->plugin_folder = "animated_al_list";
+      $this->plugin_folder = "animated-al-list";
       $this->trace = true;
   }
 public function trace()

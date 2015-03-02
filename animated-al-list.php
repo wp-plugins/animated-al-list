@@ -2,8 +2,8 @@
 /*
 Plugin Name: Animated AL List
 Description: A list of elements (text or image) with animations.
-Version: 1.0.1
-Author: alexdtn
+Version: 1.0.2
+Author: alexdtn (<a href="http://al-plugins.biz/">homesite</a>)
 */
 
 namespace animated_al;
