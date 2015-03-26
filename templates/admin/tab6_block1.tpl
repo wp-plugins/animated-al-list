@@ -1,5 +1,10 @@
 <h2 style="text-decoration:overline;">Apply Effect</h2>
 
+<?php
+if (array_key_exists('main_info',$list))
+  {
+?>
+
 <form id="effects_list_form" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=animated_al_show&active=5&pid=<?php if (isset($_GET['pid']))echo $_GET['pid']; else echo $proj_id; ?>&amp;updated=true">
 
   <?php
@@ -54,3 +59,6 @@ if (isset($list['main_info']['list_visible_number'])&&(isset($list['main_info'][
 <input type="hidden" name="proj_id" value="<?php if (isset($_GET['pid']))echo $_GET['pid']; else echo $proj_id; ?>">
 <input type="submit" name="save_items_effect_btn" value=" Save Effect ">
 </form>
+<?php
+  }
+?>

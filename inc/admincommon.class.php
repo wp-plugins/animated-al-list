@@ -41,16 +41,16 @@ public function addAdminScryptesAndStyles()
   }
 public function addMenu()
   {
-    $main_page = add_menu_page('Animated AL List', 'Animated AL List', 'manage_options', 'animated_al_show_about', array('\animated_al\AnimatedAl_Admin_Common', 'animated_al_show_about'), plugins_url('images/menu_pict.png', $this->file));
+    $main_page = add_menu_page('Animated AL List', 'Animated AL List', 'manage_options', 'animated_al_show_about', array($this, 'animated_al_show_about'), plugins_url('images/menu_pict.png', $this->file));
        	
-    $submenu = add_submenu_page('animated_al_show_about', 'Animated AL List Setup', 'Animated AL List Setup', 'manage_options', 'animated_al_show', array('\animated_al\AnimatedAl_Admin_Common', 'execute'));
-    $submenu2 = add_submenu_page('animated_al_show_about', 'Animated AL List Info', 'Animated AL List Info', 'manage_options', 'animated_al_show_info', array('\animated_al\AnimatedAl_Admin_Common', 'animated_al_show_info'));
-    $submenu3 = add_submenu_page('animated_al_show_about', 'Other Products', 'Other Products', 'manage_options', 'animated_al_show_products', array('\animated_al\AnimatedAl_Admin_Common', 'animated_al_show_products'));
+    $submenu = add_submenu_page('animated_al_show_about', 'Animated AL List Setup', 'Animated AL List Setup', 'manage_options', 'animated_al_show', array($this, 'execute'));
+    $submenu2 = add_submenu_page('animated_al_show_about', 'Animated AL List Info', 'Animated AL List Info', 'manage_options', 'animated_al_show_info', array($this, 'animated_al_show_info'));
+    $submenu3 = add_submenu_page('animated_al_show_about', 'Other Products', 'Other Products', 'manage_options', 'animated_al_show_products', array($this, 'animated_al_show_products'));
 
-       	add_action('admin_print_styles-' . $submenu, array('\animated_al\AnimatedAl_Admin_Common', 'addAdminScryptesAndStyles'));
-       	add_action('admin_print_styles-' . $submenu2, array('\animated_al\AnimatedAl_Admin_Common', 'addAdminScryptesAndStyles'));
-       	add_action('admin_print_styles-' . $submenu3, array('\animated_al\AnimatedAl_Admin_Common', 'addAdminScryptesAndStyles'));
-       	add_action('admin_print_styles-' . $main_page, array('\animated_al\AnimatedAl_Admin_Common', 'addAdminScryptesAndStyles'));
+       	add_action('admin_print_styles-' . $submenu, array($this, 'addAdminScryptesAndStyles'));
+       	add_action('admin_print_styles-' . $submenu2, array($this, 'addAdminScryptesAndStyles'));
+       	add_action('admin_print_styles-' . $submenu3, array($this, 'addAdminScryptesAndStyles'));
+       	add_action('admin_print_styles-' . $main_page, array($this, 'addAdminScryptesAndStyles'));
 
   }
 public function init()
@@ -119,8 +119,7 @@ public static function animated_al_install()
   `item_disabled` int(5)  DEFAULT 0,
   
   `item_num` int(5)  DEFAULT 0,
-  PRIMARY KEY (`item_id`),
-  FOREIGN KEY (main_id) REFERENCES ".$table_main."(list_id) ON UPDATE CASCADE ON DELETE CASCADE
+  PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDb  DEFAULT CHARSET=utf8 ;
 ";
 

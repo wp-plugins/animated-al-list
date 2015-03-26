@@ -15,15 +15,29 @@ public function execute($proj_id)
   {
     return $this->model_main->get_main_results($proj_id);
   }
-public function add_scripts_fronend()
+public static function register_scripts_fronend()
   {
   $helper = new AnimatedAl_Helper();
   
-    $helper->addStyle("animated_al_list_main", "css/animated_al_list_main.css");
+    $helper->registerStylefront("animated_al_list_main", "css/animated_al_list_main.css");
 
-    $helper->addScryptfront("animated_al_list_modernizr", "js/animated_al_list_modernizr.js");  
-    $helper->addScryptfront("animated_al_list_common", "js/animated_al_list_common.js");  
+    $helper->registerScryptfront("animated_al_list_modernizr", "js/animated_al_list_modernizr.js");  
+    $helper->registerScryptfront("animated_al_list_common", "js/animated_al_list_common.js");  
 
 
   }
+public static function print_scripts_fronend()
+  {
+  global $animated_al_list_run_flag;
+  if ($animated_al_list_run_flag != true)return;
+  
+  $helper = new AnimatedAl_Helper();
+  
+    $helper->printStylefront("animated_al_list_main", "css/animated_al_list_main.css");
+
+    $helper->printScryptfront("animated_al_list_modernizr", "js/animated_al_list_modernizr.js");  
+    $helper->printScryptfront("animated_al_list_common", "js/animated_al_list_common.js");  
+
+  }
+
 }

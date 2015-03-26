@@ -28,6 +28,7 @@ public function saveEffect($source, $id)
 
 public function savePositions($source, $id)
   {
+  $source['positions_arg'] = "";
     foreach ($source['equa_addit'] as $key=>$val)
       {
         $source['positions_arg'] .= $key."**".$val."***";

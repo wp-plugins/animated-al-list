@@ -3,7 +3,10 @@
 <div class='position_errors' style="color:red;">
 
 </div>
-
+<?php
+if (array_key_exists('main_info',$list))
+{
+?>
 <div style="float:right; width:300px;">
 Predefined states : 
 <select name="predefined_states">
@@ -64,4 +67,8 @@ Right/Up <input type="radio" name="side_of_moving_fl" value="-1" <?php if ($list
 <input type="hidden" name="proj_id" value="<?php if (isset($_GET['pid']))echo $_GET['pid']; else echo $proj_id; ?>">
 <input type="submit" name="save_items_positions_btn" value=" Save Positions equation ">
 </form>
+
+<?php 
+ }
+?>
 </div>

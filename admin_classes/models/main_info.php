@@ -69,7 +69,15 @@ public function getMainInfo($id)
   }
 public function delMainInfo($id)
   {
-    return $this->db->deleteRow($this->table, "list_id", $id, '%d');
+  $tables = array('list_items'=>$this->db->wpdb->prefix."animated_al_list_items");
+
+  $params = array($id);
+  $sql = "delete main.*, items.* from ".$this->table." as main left join ".$tables['list_items']." as items on (main.list_id=items.item_id) where main.list_id=%d";
+
+    $this->db->generalSql($sql, $params);
+
+    return true;
+
   }
 }
 ?>

@@ -120,7 +120,7 @@ public function execute($pid)
     $all_projects = $this->getProjects();
 
   //Load main - action
-    if ((!isset($proj_id))||(!$proj_id))$proj_id = $all_projects[0]->list_id;
+    if (((!isset($proj_id))||(!$proj_id))&&(array_key_exists(0,$all_projects)))$proj_id = $all_projects[0]->list_id;
     $list = $this->getMainInfo($proj_id);
   
     return array($proj_id, $all_projects, $list);

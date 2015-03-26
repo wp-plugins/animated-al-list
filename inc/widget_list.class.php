@@ -60,7 +60,7 @@ class AnimatedAl_Widget_List extends \WP_Widget {
 
       foreach ($all_projects as $cur_prj)
       {
-      if ($instance['list_id'] == $cur_prj->list_id)
+      if (isset($instance['list_id'])&&($instance['list_id'] == $cur_prj->list_id))
         $output .= "<option value='".$cur_prj->list_id."' selected='selected'>".$cur_prj->list_name."</option>";
         else
         $output .= "<option value='".$cur_prj->list_id."'>".$cur_prj->list_name."</option>";
